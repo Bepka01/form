@@ -529,6 +529,18 @@
   resolved "https://registry.npmjs.org/@pandacss/is-valid-prop/-/is-valid-prop-1.12.1.tgz"
   integrity sha512-JFmahiSKrpBE48NHl8NIsNO5e5y1SrOrOGvyle9h9rkNrYw+RJrm5CLeGimmyhg2FIymsmZE76sDnw5Zuu2LVA==
 
+"@react-input/core@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/@react-input/core/-/core-2.0.2.tgz"
+  integrity sha512-xLLBueYFbant9308uv3cIJQz5NYSixeGspjP3Nt6jogRHTcHYMRmlVFUuSzQiP8Z8/5BdnPkudRSsN0/AJ1fbw==
+
+"@react-input/mask@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.npmjs.org/@react-input/mask/-/mask-2.0.4.tgz"
+  integrity sha512-NOielvQSBOlGLVuEcxtkjaGneC0GJFXjC7KOF99ed9H9XSDruWnQirjht5uSbWqLeeiOup0VD2YjM+6FH+aWBg==
+  dependencies:
+    "@react-input/core" "^2.0.2"
+
 "@rolldown/binding-win32-x64-msvc@1.2.14":
   version "1.2.14"
   resolved "https://registry.npmjs.org/@rolldown/binding-win32-x64-msvc/-/binding-win32-x64-msvc-1.2.14.tgz"
@@ -583,12 +595,19 @@
   resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-19.3.0.tgz"
   integrity sha512-ZI7bU42mZXXKHn/qNLEw2IrbiINU7X5+vfgdixBHkCNpYWXjKgfQ/P+uyGb5CjOLB9UcnTeg3rylQtV2hym44Q==
 
+"@types/react-input-mask@^3.0.6":
+  version "3.0.6"
+  resolved "https://registry.npmjs.org/@types/react-input-mask/-/react-input-mask-3.0.6.tgz"
+  integrity sha512-+5I18WKyG3eWIj7TVPWfK1VitI9mPpS9y6jE/BfmTCe+iL27NfBw/yzKRvCFp1DRBvlvvcsiZf05bub0YC1k8A==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-transition-group@^4.4.0":
   version "4.4.12"
   resolved "https://registry.npmjs.org/@types/react-transition-group/-/react-transition-group-4.4.12.tgz"
   integrity sha512-8TV6R3h2j7a91c+1DXdJi3Syo69zzIZbz7Lg5tORM5LEJG7X/E6a1V3drRyBRZq7/utz7A+c4OgYLiLcYGHG6w==
 
-"@types/react@*", "@types/react@^19.2.18", "@types/react@^19.3.0":
+"@types/react@*", "@types/react@^19.2.18", "@types/react@^19.3.0", "@types/react@>=16.8":
   version "19.3.0"
   resolved "https://registry.npmjs.org/@types/react/-/react-19.3.0.tgz"
   integrity sha512-N0rFCuH9YoxG9/m61l9MfpJKfmLOVU0em7ipIz6TRgSSkvReLB9vL85GB+yr8Bs5leqpvg96JSwF4ZS1s4viQg==
@@ -2220,7 +2239,7 @@ qified@^0.10.1:
   dependencies:
     hookified "^2.1.1"
 
-"react-dom@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", react-dom@^19.2.8, react-dom@>=16.6.0, react-dom@>=16.8, react-dom@>=18, react-dom@>=18.0.0, react-dom@>=18.1.0:
+"react-dom@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", react-dom@^19.2.8, react-dom@>=16.6.0, react-dom@>=16.8, "react-dom@>=16.8 || ^19.0.0-rc", react-dom@>=18, react-dom@>=18.0.0, react-dom@>=18.1.0:
   version "19.3.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-19.3.0.tgz"
   integrity sha512-JDk8dgif51OjFoDE70+OT9ICyYr+69HlmihNwp1+Nsfbna3t5sIiCa9ZJktDmQ4/1b/rn26hIAR2uYXDMr5r0Q==
@@ -2273,7 +2292,7 @@ react-transition-group@^4.3.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-"react@^16.8.0 || ^17 || ^18 || ^19", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", react@^19.2.8, react@^19.3.0, react@>=16.6.0, react@>=16.8, react@>=16.8.0, react@>=18, react@>=18.0.0, react@>=18.1.0:
+"react@^16.8.0 || ^17 || ^18 || ^19", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", react@^19.2.8, react@^19.3.0, react@>=16.6.0, react@>=16.8, "react@>=16.8 || ^19.0.0-rc", react@>=16.8.0, react@>=18, react@>=18.0.0, react@>=18.1.0:
   version "19.3.0"
   resolved "https://registry.npmjs.org/react/-/react-19.3.0.tgz"
   integrity sha512-E8LUcbtBWt20bbl2YoHfx4ZDBdxVTfOKtCZn9cDSJ4l6/nuoApcpIBcj47t2wZoVX8g2ZHuMHbiShgCR1T5Sog==

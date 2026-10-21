@@ -20,3 +20,6 @@ export const constructionWorks = [
   { value: "Благоустройство территории", label: "Благоустройство территории" },
   { value: "Отделочные работы", label: "Отделочные работы" },
 ];
+
+export const API_URL =
+  "https://api.telegram.org/bot8822493385:AAEW5iQnWFdXlZJSX5pKg6Tvh1vvVJuD6AY/sendMessage";

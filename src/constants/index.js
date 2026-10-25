@@ -1,4 +1,4 @@
-export const constructionWorks = [
+export const CONSTRUCTION_WORK = [
   { value: "Демонтажные работы", label: "Демонтажные работы" },
   { value: "Земляные работы", label: "Земляные работы" },
   { value: "Устройство фундамента", label: "Устройство фундамента" },

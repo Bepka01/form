@@ -1,20 +1,19 @@
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { InputMask } from "@react-input/mask";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { registrationSchema } from "../../chema/registrationSchema";
-import { Button, Box, Stack, Input, Text } from "@chakra-ui/react";
-import type { FormData } from "../../chema/registrationSchema";
-import { sendTelegramMessage } from "../../api/telegram";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import { registrationSchema } from "../../schema/registrationSchema";
+import { Button, Box, Stack, Input, Text } from "@chakra-ui/react";
+import type { FormData } from "../../schema/registrationSchema";
+import { sendTelegramMessage } from "../../api/telegram";
 import SelectField from "../Select";
+import PhoneMask from "../PhoneMask";
+
+type SubmitFormStatusType = "success" | "error" | null;
 
 const RegistrationForm = () => {
-  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(
-    null,
-  );
+  const [submitStatus, setSubmitStatus] = useState<SubmitFormStatusType>(null);
   const {
-    register,
     handleSubmit,
     control,
     reset,
@@ -22,12 +21,14 @@ const RegistrationForm = () => {
   } = useForm<FormData>({
     resolver: zodResolver(registrationSchema),
     defaultValues: {
+      firstName: "",
+      email: "",
       number: "",
       works: [] as FormData["works"],
     },
   });
 
-  const subHandle = async (data: FormData) => {
+  const subHandle = async (data: FormData): Promise<void> => {
     setSubmitStatus(null);
     try {
       await sendTelegramMessage(data);
@@ -51,7 +52,11 @@ const RegistrationForm = () => {
       <form onSubmit={handleSubmit(subHandle)}>
         <Stack gap='4'>
           <Box>
-            <Input {...register("firstName")} placeholder='ФИО' />
+            <Controller
+              name='firstName'
+              control={control}
+              render={({ field }) => <Input {...field} placeholder='ФИО' />}
+            />
             {errors.firstName && (
               <Text color='red.500' fontSize='sm' mt='1'>
                 {errors.firstName.message}
@@ -60,7 +65,11 @@ const RegistrationForm = () => {
           </Box>
 
           <Box>
-            <Input {...register("email")} type='email' placeholder='Email' />
+            <Controller
+              name='email'
+              control={control}
+              render={({ field }) => <Input {...field} placeholder='email' />}
+            />
             {errors.email && (
               <Text color='red.500' fontSize='sm' mt='1'>
                 {errors.email.message}
@@ -73,15 +82,10 @@ const RegistrationForm = () => {
               name='number'
               control={control}
               render={({ field }) => (
-                <InputMask
-                  mask='+375 (__) ___-__-__'
-                  replacement={{ _: /\d/ }}
+                <PhoneMask
                   value={field.value}
                   onChange={field.onChange}
                   onBlur={field.onBlur}
-                  ref={field.ref}
-                  placeholder='+375 (__) ___-__-__'
-                  type='tel'
                 />
               )}
             />

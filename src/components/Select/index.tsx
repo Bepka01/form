@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import Select from "react-select";
-import { constructionWorks } from "../../data/index";
-import type { FormData } from "../../chema/registrationSchema";
+import { CONSTRUCTION_WORK } from "../../constants/index.js";
+import type { FormData } from "../../schema/registrationSchema";
 
 type SelectFieldProps = {
   value: FormData["works"];
@@ -10,22 +10,20 @@ type SelectFieldProps = {
 };
 
 const SelectField = ({ value = [], onChange, onBlur }: SelectFieldProps) => {
-  const selectedOptions = constructionWorks.filter((work) =>
+  const selectedOptions = CONSTRUCTION_WORK.filter((work) =>
     value.includes(work.value),
   );
 
   return (
-    <Box>
-      <Select
-        isMulti
-        closeMenuOnSelect={false}
-        options={constructionWorks}
-        value={selectedOptions}
-        onChange={(options) => onChange(options.map((option) => option.value))}
-        onBlur={onBlur}
-        placeholder='Выберите строительные работы...'
-      />
-    </Box>
+    <Select
+      isMulti
+      closeMenuOnSelect={false}
+      options={CONSTRUCTION_WORK}
+      value={selectedOptions}
+      onChange={(options) => onChange(options.map((option) => option.value))}
+      onBlur={onBlur}
+      placeholder='Выберите строительные работы...'
+    />
   );
 };
 

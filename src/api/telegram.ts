@@ -1,6 +1,6 @@
 import type { FormData } from "../schema/registrationSchema.js";
-import { API_URL } from "../constants/index.js";
 import axios from "axios";
+import { CHAT_ID, API_URL } from "../constants/index.js";
 
 type TelegramResponse = {
   ok: boolean;
@@ -20,7 +20,7 @@ export const sendTelegramMessage = async (
   data: FormData,
 ): Promise<TelegramResponse> => {
   const response = await axios.post(API_URL, {
-    chat_id: -1004373185404,
+    chat_id: CHAT_ID,
     text: `
 ФИО: ${data.firstName},
 Email: ${data.email},

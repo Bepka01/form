@@ -21,5 +21,5 @@ export const CONSTRUCTION_WORK = [
   { value: "Отделочные работы", label: "Отделочные работы" },
 ];
 
-export const API_URL =
-  "https://api.telegram.org/bot8822493385:AAEW5iQnWFdXlZJSX5pKg6Tvh1vvVJuD6AY/sendMessage";
+export const API_URL = import.meta.env.VITE_API_URL;
+export const CHAT_ID = import.meta.env.VITE_CHAT_ID;

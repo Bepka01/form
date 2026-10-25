@@ -17,7 +17,7 @@ const RegistrationForm = () => {
     handleSubmit,
     control,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<FormData>({
     resolver: zodResolver(registrationSchema),
     defaultValues: {
@@ -123,8 +123,13 @@ const RegistrationForm = () => {
             </Text>
           )}
 
-          <Button type='submit' colorPalette='red' w='full'>
-            Отправить
+          <Button
+            disabled={isSubmitting}
+            type='submit'
+            colorPalette='red'
+            w='full'
+          >
+            {isSubmitting ? "Отправка" : "Отправить"}
           </Button>
         </Stack>
       </form>

@@ -1,4 +1,3 @@
-import { Box } from "@chakra-ui/react";
 import Select from "react-select";
 import { CONSTRUCTION_WORK } from "../../constants/index.js";
 import type { FormData } from "../../schema/registrationSchema";

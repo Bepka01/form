@@ -3,11 +3,7 @@ import { Container, Heading } from "@chakra-ui/react";
 
 function App() {
   return (
-    <Container
-      width='100%'
-      height='100$
-    '
-    >
+    <Container>
       <Heading as='h1' size='xl' textAlign='center' mb='100px' p='20px'>
         Registration form
       </Heading>

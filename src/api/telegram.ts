@@ -2,7 +2,7 @@ import type { FormData } from "../schema/registrationSchema.js";
 import axios from "axios";
 import { CHAT_ID, API_URL } from "../constants/index.js";
 
-type TelegramResponse = {
+interface TelegramResponse {
   ok: boolean;
   result?: {
     message_id: number;
@@ -14,7 +14,7 @@ type TelegramResponse = {
     };
     text?: string;
   };
-};
+}
 
 export const sendTelegramMessage = async (
   data: FormData,

@@ -22,10 +22,11 @@ export const sendTelegramMessage = async (
   const response = await axios.post(API_URL, {
     chat_id: CHAT_ID,
     text: `
-ФИО: ${data.firstName},
-Email: ${data.email},
-Телефон: ${data.number},
-Работы: ${data.works},
+ФИО: ${data.firstName}
+Email: ${data.email}
+Телефон: ${data.number}
+Работы: ${data.works.map((work, index) => `${index + 1} ${work}`).join("\n")}
+
       `,
   });
 

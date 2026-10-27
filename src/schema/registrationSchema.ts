@@ -2,7 +2,9 @@ import { z } from "zod";
 import { isValidPhoneNumber } from "libphonenumber-js";
 
 export const registrationSchema = z.object({
-  firstName: z.string().min(3, "Введите минимум 2 символа"),
+  firstName: z
+    .string()
+    .regex(/^\s*\S+(?:\s+\S+){1,2}\s*$/, "Введите от 2 до 3 слов"),
   number: z
     .string()
     .min(1, "Введите номер телефона")
